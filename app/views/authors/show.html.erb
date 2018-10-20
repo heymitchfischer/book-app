@@ -1,0 +1,14 @@
+<h2><%= @author.name %></h2>
+<%= image_tag(@author.image_url) %>
+<p><%= @author.biography %></p>
+
+<%= link_to("Edit Author", "/authors/#{@author.id}/edit") %>
+<%= link_to("Delete Author", "/authors/#{@author.id}", method: :delete) %>
+
+<h3>Books by <%= @author.name %>:</h3>
+<% @author.books.each do |book| %>
+  <div>
+    <%= link_to("#{book.name}", "/books/#{book.id}") %>
+    <%= image_tag(book.image_url) %>
+  </div>
+<% end %>

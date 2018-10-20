@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>My Book Collection</h1>
+    <ul>
+      <li><%= link_to("Books", "/books") %></li>
+      <li><%= link_to("Authors", "/authors") %></li>
+      <li><%= link_to("Add New Book", "/books/new") %></li>
+      <li><%= link_to("Add New Author", "/authors/new") %></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

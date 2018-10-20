@@ -1,0 +1,25 @@
+<h2>Update a book in your collection:</h2>
+
+<%= form_tag("/books/<%= @book.id %>", method: :put) do %>
+  <label for="name">Book Title:</label>
+  <input type="text" id="name" name="name" value="<%= @book.name %>">
+  <br>
+  <select name="author_id">
+    <% if @book.author %>
+      <option value="<%= @book.author_id %>" selected><%= @book.author.name %></option>
+    <% else %>
+      <option value="" disabled selected>Select an author</option>
+    <% end %>
+    <% @authors.each do |author| %>
+      <option value="<%= author.id %>"><%= author.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="image_url">Link to Book Image:</label>
+  <input type="text" id="image_url" name="image_url" value="<%= @book.image_url %>">
+  <br>
+  <label for="description">Enter Description of Book:</label>
+  <textarea name="description"><%= @book.description %></textarea>
+  <br>
+  <input type="submit" value="Update book">
+<% end %>

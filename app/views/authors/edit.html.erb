@@ -1,0 +1,14 @@
+<h2>Edit author:</h2>
+
+<%= form_tag("/authors/#{@author.id}", method: :put) do %>
+  <label for="name">Author Name:</label>
+  <input type="text" id="name" name="name" value="<%= @author.name %>">
+  <br>
+  <label for="image_url">Link to Author Image:</label>
+  <input type="text" id="image_url" name="image_url" value="<%= @author.image_url %>">
+  <br>
+  <label for="biography">Author Biography:</label>
+  <textarea name="biography"><%= @author.biography %></textarea>
+  <br>
+  <input type="submit" value="Update author">
+<% end %>

@@ -1,0 +1,21 @@
+<h2>Add a new book to your collection:</h2>
+
+<%= form_tag("/books", method: :post) %>
+  <label for="name">Book Title:</label>
+  <input type="text" id="name" name="name">
+  <br>
+  <select name="author_id">
+    <option value="" disabled selected>Select an author</option>
+    <% @authors.each do |author| %>
+      <option value="<% author.id %>"><%= author.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="image_url">Link to Book Image:</label>
+  <input type="text" id="image_url" name="image_url">
+  <br>
+  <label for="description">Enter Description of Book:</label>
+  <textarea name="description"></textarea>
+  <br>
+  <input type="submit" value="Add new book">
+<% end %>

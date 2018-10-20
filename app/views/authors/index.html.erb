@@ -1,0 +1,5 @@
+<h2>All my authors:</h2>
+
+<% @authors.each do |author| %>
+  <%= link_to("#{author.name}", "/authors/:id") %>
+<% end %>
